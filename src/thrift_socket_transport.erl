@@ -58,7 +58,7 @@ read(This = #data{socket=Socket, recv_timeout=Timeout}, Len)
             gen_tcp:close(Socket),
             {This, Err};
         Data ->
-	    lager:info("This is data from Conference Server.~n  Data:~p~n",[Data]),
+	    error_logger:info_msg("This is data from Conference Server.~n  Data:~p~n",[Data]),
             {This, Data}
     end.
 
