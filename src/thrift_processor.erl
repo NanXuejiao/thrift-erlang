@@ -62,7 +62,7 @@ loop(State0 = #thrift_processor{protocol  = Proto0,
             thrift_protocol:close_transport(Proto1),
             ok;
         {error, closed = Reason} ->
-            %% error_logger:info_msg("Client disconnected~n"),
+            error_logger:info_msg("Client disconnected~n"),
             Handler:handle_error(undefined, Reason),
             thrift_protocol:close_transport(Proto1),
             exit(shutdown);
