@@ -192,6 +192,7 @@ acceptor_loop({Server, Listen, Service, Handler, SocketOpts, Framed})
                        end,
             thrift_processor:init({Server, ProtoGen, Service, Handler});
         {error, closed} ->
+            error_logger:info_msg("thrift_socket_server,acceptor_loop 195.Server:~p,SocketOpts:~p,Listen:~p~n",[Server,SocketOpts,Listen]),
             exit({error, closed});
         Other ->
             error_logger:error_report(
