@@ -160,6 +160,7 @@ gen_tcp_listen(Port, Opts, State) ->
             {ok, new_acceptor(State#thrift_socket_server{listen=Listen,
                                                          port=ListenPort})};
         {error, Reason} ->
+            error_logger:info_msg("thrift_socket_server:gen_tcp_listen 163.tcp error Reason:~p~n",[Reason]),
             {stop, Reason}
     end.
 
