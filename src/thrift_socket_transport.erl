@@ -58,7 +58,7 @@ read(This = #data{socket=Socket, recv_timeout=Timeout}, Len)
             gen_tcp:close(Socket),
             {This, Err};
         Data ->
-	    error_logger:info_msg("This is data from Conference Server.~n  Data:~p~n",[Data]),
+	    error_logger:info_msg("thrift_socket_transport:read 61. Socket:~p,Data:~p~n",[inet:peername(Socket), Data]),
             {This, Data}
     end.
 
